@@ -1,8 +1,8 @@
 import { Injectable, UnauthorizedException } from "@nestjs/common"
-import type { JwtService } from "@nestjs/jwt"
-import type { UsersService } from "../users/users.service"
-import type { JwtPayload } from "./interfaces/jwt-payload.interface"
-import type { AuthResponse } from "./dto/auth-response.dto"
+import  { JwtService } from "@nestjs/jwt"
+import  { UsersService } from "../users/users.service"
+import  { JwtPayload } from "./interfaces/jwt-payload.interface"
+import  { AuthResponse } from "./dto/auth-response.dto"
 import type { User } from "@prisma/client"
 
 @Injectable()

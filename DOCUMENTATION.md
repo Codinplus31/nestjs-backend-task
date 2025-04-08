@@ -23,6 +23,10 @@ A RESTful API service using NestJS with TypeScript that supports user authentica
 1. Clone the repository
 2. Install dependencies:
 
+npm install 
+
+to run locally 
+npm run start:dev
 
 
 # GraphQL API Documentation

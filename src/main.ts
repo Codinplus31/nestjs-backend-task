@@ -25,8 +25,8 @@ async function bootstrap() {
 }
 
 // For Vercel serverless deployment
-let app
-export default async (req, res) => {
+let app: any;
+export default async (req: Request, res: Response) => {
   if (!app) {
     app = await bootstrap()
   }

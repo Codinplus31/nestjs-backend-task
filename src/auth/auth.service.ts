@@ -49,7 +49,7 @@ export class AuthService {
       user: {
         id: user.id,
         email: user.email,
-        biometricKey: user.biometricKey as string | undefined,
+        biometricKey: user.biometricKey ?? null, // Ensure it is either string or null
         createdAt: user.createdAt,
         updatedAt: user.updatedAt,
       },
@@ -68,4 +68,3 @@ export class AuthService {
     return this.login(user)
   }
 }
-

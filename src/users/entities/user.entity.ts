@@ -9,7 +9,7 @@ export class User {
   email!: string;
 
   @Field({ nullable: true })
-  biometricKey?: string | null; // Allow null values
+  biometricKey?: string; // Allow null values
 
   @Field()
   createdAt!: Date;

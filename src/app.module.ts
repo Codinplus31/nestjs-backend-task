@@ -20,7 +20,7 @@ import { AuthModule } from "./auth/auth.module"
       autoSchemaFile: join(process.cwd(), "src/schema.gql"),
       sortSchema: true,
       playground: true,
-      context: ({ req }: { req }) => ({ req }),
+      context: ({ req }: { req: Request }) => ({ req }),
 
     }),
     PrismaModule,

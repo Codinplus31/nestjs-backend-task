@@ -1,16 +1,18 @@
-import { NestFactory } from "@nestjs/core"
-import { AppModule } from "./app.module"
-import { ValidationPipe } from "@nestjs/common"
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app.module";
+import { ValidationPipe } from "@nestjs/common";
+import { PrismaClient } from "@prisma/client";
 
+// Bootstrap function to initialize the NestJS application
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule)
+  const app = await NestFactory.create(AppModule);
 
   // Enable CORS
   app.enableCors({
     origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
     credentials: true,
-  })
+  });
 
   // Apply global validation pipe
   app.useGlobalPipes(
@@ -18,28 +20,51 @@ async function bootstrap() {
       whitelist: true,
       forbidNonWhitelisted: true,
       transform: true,
-    }),
-  )
-await app.listen(process.env.PORT || 3000);
-  return app
+    })
+  );
+
+  await app.listen(process.env.PORT || 3000);
+  return app;
 }
 
 // For Vercel serverless deployment
 let app: any;
+let dbInitialized = false;
+
 export default async (req: Request, res: Response) => {
-  if (!app) {
-    app = await bootstrap()
+  try {
+    if (!app) {
+      app = await bootstrap();
+
+      // Initialize database on first request
+      if (!dbInitialized) {
+        const prisma = new PrismaClient();
+        try {
+          // Force Prisma to connect and create tables if they don't exist
+          await prisma.$executeRaw`SELECT 1`;
+          console.log('Database connection established');
+          dbInitialized = true;
+        } catch (error) {
+          console.error('Database initialization error:', error);
+        } finally {
+          await prisma.$disconnect();
+        }
+      }
+    }
+    return app.getHttpAdapter().getInstance()(req, res);
+  } catch (error) {
+    console.error('Request error:', error);
+    res.status(500).send('Internal Server Error');
   }
-  return app.getHttpAdapter().getInstance()(req, res)
-}
+};
 
 // For local development
 if (process.env.NODE_ENV !== "production") {
   bootstrap()
     .then((app) => {
-    const port = process.env.PORT || 3000;
-    app.listen(port);
-  //   app.getUrl().then((url) => console.log(`Application is running on: ${url}`));
-  });
+      const port = process.env.PORT || 3000;
+      app.listen(port);
+      // app.getUrl().then((url) => console.log(`Application is running on: ${url}`));
+    })
+    .catch((error) => console.error('Bootstrap error:', error));
 }
-

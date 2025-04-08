@@ -25,7 +25,8 @@ A RESTful API service using NestJS with TypeScript that supports user authentica
 
 npm install 
 
-to run locally 
+##to run locally 
+
 npm run start:dev
 
 

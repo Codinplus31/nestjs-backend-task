@@ -7,6 +7,7 @@ import { AuthResponse } from "./dto/auth-response.dto"
 import { JwtAuthGuard } from "./guards/jwt-auth.guard"
 import { CurrentUser } from "../common/decorators/current-user.decorator"
 
+
 @Resolver()
 export class AuthResolver {
   constructor(

@@ -7,6 +7,7 @@ import { join } from "path"
 import { PrismaModule } from "./prisma/prisma.module"
 import { UsersModule } from "./users/users.module"
 import { AuthModule } from "./auth/auth.module"
+import { Request } from 'express';
 
 @Module({
   imports: [
@@ -19,7 +20,8 @@ import { AuthModule } from "./auth/auth.module"
       autoSchemaFile: join(process.cwd(), "src/schema.gql"),
       sortSchema: true,
       playground: true,
-      context: ({ req }) => ({ req }),
+      context: ({ req }: { req: Request }) => ({ req }),
+
     }),
     PrismaModule,
     UsersModule,

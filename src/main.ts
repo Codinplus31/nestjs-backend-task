@@ -40,19 +40,21 @@ export default async (req: Request, res: Response) => {
       if (!dbInitialized) {
         const prisma = new PrismaClient();
         try {
-          // Force Prisma to connect and create tables if they don't exist
+          // Run SQL statements one at a time
           await prisma.$executeRaw`CREATE TABLE IF NOT EXISTS "User" (
-  "id" TEXT NOT NULL,
-  "email" TEXT NOT NULL,
-  "password" TEXT NOT NULL,
-  "biometricKey" TEXT,
-  "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  "updatedAt" TIMESTAMP(3) NOT NULL,
-  CONSTRAINT "User_pkey" PRIMARY KEY ("id")
-);
+            "id" TEXT NOT NULL,
+            "email" TEXT NOT NULL,
+            "password" TEXT NOT NULL,
+            "biometricKey" TEXT,
+            "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            "updatedAt" TIMESTAMP(3) NOT NULL,
+            CONSTRAINT "User_pkey" PRIMARY KEY ("id")
+          );`;
 
-CREATE UNIQUE INDEX IF NOT EXISTS "User_email_key" ON "User"("email");
-CREATE UNIQUE INDEX IF NOT EXISTS "User_biometricKey_key" ON "User"("biometricKey") WHERE "biometricKey" IS NOT NULL;`;
+          await prisma.$executeRaw`CREATE UNIQUE INDEX IF NOT EXISTS "User_email_key" ON "User"("email");`;
+
+          await prisma.$executeRaw`CREATE UNIQUE INDEX IF NOT EXISTS "User_biometricKey_key" ON "User"("biometricKey") WHERE "biometricKey" IS NOT NULL;`;
+
           console.log('Database connection established');
           dbInitialized = true;
         } catch (error) {

@@ -3,10 +3,10 @@ import { ObjectType, Field, ID } from "@nestjs/graphql"
 @ObjectType()
 export class User {
   @Field(() => ID)
-  id: string
+  id!: string
 
   @Field()
-  email: string
+  email!: string
 
   // We don't expose the password in GraphQL responses
 
@@ -14,9 +14,8 @@ export class User {
   biometricKey?: string
 
   @Field()
-  createdAt: Date
+  createdAt!: Date
 
   @Field()
-  updatedAt: Date
+  updatedAt!: Date
 }
-

@@ -1,9 +1,9 @@
-import { Test,  TestingModule } from "@nestjs/testing"
+import { Test, type TestingModule } from "@nestjs/testing"
 import { JwtService } from "@nestjs/jwt"
 import { UnauthorizedException } from "@nestjs/common"
 import { AuthService } from "./auth.service"
 import { UsersService } from "../users/users.service"
-import  { User } from "@prisma/client"
+import type { User } from "@prisma/client"
 
 describe("AuthService", () => {
   let authService: AuthService

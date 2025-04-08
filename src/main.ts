@@ -34,7 +34,7 @@ export default async (req: Request, res: Response) => {
 }
 
 // For local development
-if (process.env.NODE_ENV !== "production" || process.env.RENDER) {
+if (process.env.NODE_ENV !== "production") {
   bootstrap()
     .then((app) => {
     const port = process.env.PORT || 3000;

@@ -49,7 +49,7 @@ export class AuthService {
       user: {
         id: user.id,
         email: user.email,
-        biometricKey: user.biometricKey,
+        biometricKey: user.biometricKey as string | undefined,
         createdAt: user.createdAt,
         updatedAt: user.updatedAt,
       },

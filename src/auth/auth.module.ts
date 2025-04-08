@@ -8,7 +8,7 @@ import { AuthResolver } from "./auth.resolver"
 import { UsersModule } from "../users/users.module"
 import { JwtStrategy } from "./strategies/jwt.strategy"
 import { PrismaModule } from "../prisma/prisma.module"
-
+  
 @Module({
   imports: [
     UsersModule,

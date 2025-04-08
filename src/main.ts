@@ -34,10 +34,11 @@ export default async (req: Request, res: Response) => {
 }
 
 // For local development
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== "production" || process.env.RENDER) {
   bootstrap().then((app) => {
-    app.listen(3000)
-    app.getUrl().then((url) => console.log(`Application is running on: ${url}`))
-  })
+    const port = process.env.PORT || 3000;
+    app.listen(port);
+    app.getUrl().then((url) => console.log(`Application is running on: ${url}`));
+  });
 }
 

@@ -735,13 +735,12 @@ const errorCode = error.extensions?.code;
 const statusCode = error.extensions?.response?.statusCode;
 const errorMessage = error.message;
 
-```plaintext
+
 const customError = new Error(errorMessage);
 customError.code = errorCode;
 customError.statusCode = statusCode;
 
 throw customError;
-```
 
 }
 
@@ -776,7 +775,7 @@ if (error.code === 'UNAUTHENTICATED') {
 console.log('Please check your credentials and try again.');
 }
 }
-
+```
 ```plaintext
 
 ## Testing the API
@@ -817,7 +816,7 @@ You can use Postman to test the GraphQL API:
 ```plain
 **Example Postman Collection**:
 
-\`\`\`json
+
 {
   "info": {
     "name": "NestJS GraphQL Auth API",
@@ -993,7 +992,6 @@ You can use Postman to test the GraphQL API:
     }
   ]
 }
-```
 ```
 **Setting Up Environment Variables in Postman**:
 

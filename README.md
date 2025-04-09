@@ -74,7 +74,7 @@ npm run start:dev
 
 ```javascript
 async function registerUser(email, password) {
-const response = await fetch('[https://your-vercel-deployment-url/graphql](https://your-vercel-deployment-url/graphql)', {
+const response = await fetch('https://nestjs-backend-task.vercel.app/graphql', {
 method: 'POST',
 headers: {
 'Content-Type': 'application/json',
@@ -186,7 +186,7 @@ mutation Login($input: LoginInput!) {
 
 ```javascript
 async function loginUser(email, password) {
-const response = await fetch('[https://your-vercel-deployment-url/graphql](https://your-vercel-deployment-url/graphql)', {
+const response = await fetch('https://nestjs-backend-task.vercel.app/graphql', {
 method: 'POST',
 headers: {
 'Content-Type': 'application/json',
@@ -297,7 +297,7 @@ mutation BiometricLogin($input: BiometricLoginInput!) {
 
 ```javascript
 async function biometricLogin(biometricKey) {
-const response = await fetch('[https://your-vercel-deployment-url/graphql](https://your-vercel-deployment-url/graphql)', {
+const response = await fetch('https://nestjs-backend-task.vercel.app/graphql', {
 method: 'POST',
 headers: {
 'Content-Type': 'application/json',
@@ -417,7 +417,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 ```javascript
 async function setBiometricKey(biometricKey, accessToken) {
-const response = await fetch('[https://your-vercel-deployment-url/graphql](https://your-vercel-deployment-url/graphql)', {
+const response = await fetch('https://nestjs-backend-task.vercel.app/graphql', {
 method: 'POST',
 headers: {
 'Content-Type': 'application/json',
@@ -512,7 +512,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 \`\`\`javascript
 async function getCurrentUser(accessToken) {
-  const response = await fetch('https://your-vercel-deployment-url/graphql', {
+  const response = await fetch('https://nestjs-backend-task.vercel.app/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -617,7 +617,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 ```javascript
 async function getUserById(userId, accessToken) {
-const response = await fetch('[https://your-vercel-deployment-url/graphql](https://your-vercel-deployment-url/graphql)', {
+const response = await fetch('https://nestjs-backend-task.vercel.app/graphql', {
 method: 'POST',
 headers: {
 'Content-Type': 'application/json',
@@ -718,7 +718,7 @@ if (token) {
 headers['Authorization'] = `Bearer ${token}`;
 }
 
-const response = await fetch('[https://your-vercel-deployment-url/graphql](https://your-vercel-deployment-url/graphql)', {
+const response = await fetch('https://nestjs-backend-task.vercel.app/graphql', {
 method: 'POST',
 headers,
 body: JSON.stringify({
@@ -842,7 +842,7 @@ You can use Postman to test the GraphQL API:
           }
         },
         "url": {
-          "raw": "https://your-vercel-deployment-url/graphql",
+          "raw": "https://nestjs-backend-task.vercel.app/graphql",
           "protocol": "https",
           "host": ["your-vercel-deployment-url"],
           "path": ["graphql"]
@@ -867,7 +867,7 @@ You can use Postman to test the GraphQL API:
           }
         },
         "url": {
-          "raw": "https://your-vercel-deployment-url/graphql",
+          "raw": "https://nestjs-backend-task.vercel.app/graphql",
           "protocol": "https",
           "host": ["your-vercel-deployment-url"],
           "path": ["graphql"]
@@ -892,7 +892,7 @@ You can use Postman to test the GraphQL API:
           }
         },
         "url": {
-          "raw": "https://your-vercel-deployment-url/graphql",
+          "raw": "https://nestjs-backend-task.vercel.app/graphql",
           "protocol": "https",
           "host": ["your-vercel-deployment-url"],
           "path": ["graphql"]
@@ -921,7 +921,7 @@ You can use Postman to test the GraphQL API:
           }
         },
         "url": {
-          "raw": "https://your-vercel-deployment-url/graphql",
+          "raw": "https://nestjs-backend-task.vercel.app/graphql",
           "protocol": "https",
           "host": ["your-vercel-deployment-url"],
           "path": ["graphql"]
@@ -949,7 +949,7 @@ You can use Postman to test the GraphQL API:
           }
         },
         "url": {
-          "raw": "https://your-vercel-deployment-url/graphql",
+          "raw": "https://nestjs-backend-task.vercel.app/graphql",
           "protocol": "https",
           "host": ["your-vercel-deployment-url"],
           "path": ["graphql"]
@@ -978,7 +978,7 @@ You can use Postman to test the GraphQL API:
           }
         },
         "url": {
-          "raw": "https://your-vercel-deployment-url/graphql",
+          "raw": "https://nestjs-backend-task.vercel.app/graphql",
           "protocol": "https",
           "host": ["your-vercel-deployment-url"],
           "path": ["graphql"]
@@ -1020,13 +1020,13 @@ You can use curl to test the GraphQL API from the command line:
 curl -X POST \
   -H "Content-Type: application/json" \
   -d '{"query":"mutation Register($input: RegisterInput!) { register(input: $input) { accessToken user { id email } } }","variables":{"input":{"email":"user@example.com","password":"password123"}}}' \
-  https://your-vercel-deployment-url/graphql
+  https://nestjs-backend-task.vercel.app/graphql
 ```
 
 **Login**:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"query":"mutation Login($input: LoginInput!) { login(input: $input) { accessToken user { id email } } }","variables":{"input":{"email":"[user@example.com](mailto:user@example.com)","password":"password123"}}}' [https://your-vercel-deployment-url/graphql](https://your-vercel-deployment-url/graphql)
+curl -X POST -H "Content-Type: application/json" -d '{"query":"mutation Login($input: LoginInput!) { login(input: $input) { accessToken user { id email } } }","variables":{"input":{"email":"[user@example.com](mailto:user@example.com)","password":"password123"}}}' [https://nestjs-backend-task.vercel.app/graphql](https://nestjs-backend-task.vercel.app/graphql)
 
 ```plaintext
 
@@ -1036,13 +1036,13 @@ curl -X POST -H "Content-Type: application/json" -d '{"query":"mutation Login($i
 curl -X POST \
   -H "Content-Type: application/json" \
   -d '{"query":"mutation BiometricLogin($input: BiometricLoginInput!) { biometricLogin(input: $input) { accessToken user { id email biometricKey } } }","variables":{"input":{"biometricKey":"user-biometric-key-123"}}}' \
-  https://your-vercel-deployment-url/graphql
+  https://nestjs-backend-task.vercel.app/graphql
 ```
 
 **Set Biometric Key (Authenticated)**:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer your-jwt-token" -d '{"query":"mutation SetBiometricKey($input: SetBiometricKeyInput!) { setBiometricKey(input: $input) { accessToken user { id email biometricKey } } }","variables":{"input":{"biometricKey":"new-biometric-key-456"}}}' [https://your-vercel-deployment-url/graphql](https://your-vercel-deployment-url/graphql)
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer your-jwt-token" -d '{"query":"mutation SetBiometricKey($input: SetBiometricKeyInput!) { setBiometricKey(input: $input) { accessToken user { id email biometricKey } } }","variables":{"input":{"biometricKey":"new-biometric-key-456"}}}' [https://nestjs-backend-task.vercel.app/graphql](https://nestjs-backend-task.vercel.app/graphql)
 
 ```plaintext
 
@@ -1053,13 +1053,13 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer your-jwt-token" \
   -d '{"query":"query { me { id email biometricKey createdAt updatedAt } }"}' \
-  https://your-vercel-deployment-url/graphql
+  https://nestjs-backend-task.vercel.app/graphql
 ```
 
 **Get User by ID (Authenticated)**:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer your-jwt-token" -d '{"query":"query GetUser($id: ID!) { user(id: $id) { id email biometricKey createdAt updatedAt } }","variables":{"id":"550e8400-e29b-41d4-a716-446655440000"}}' [https://your-vercel-deployment-url/graphql](https://your-vercel-deployment-url/graphql)
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer your-jwt-token" -d '{"query":"query GetUser($id: ID!) { user(id: $id) { id email biometricKey createdAt updatedAt } }","variables":{"id":"550e8400-e29b-41d4-a716-446655440000"}}' https://nestjs-backend-task.vercel.app/graphql
 
 ```plaintext
 
@@ -1265,7 +1265,7 @@ class AuthAPI {
 
 // Usage example
 async function main() {
-  const api = new AuthAPI('https://your-vercel-deployment-url/graphql');
+  const api = new AuthAPI('https://nestjs-backend-task.vercel.app/graphql');
 
   try {
     // Register a new user
@@ -1522,7 +1522,7 @@ true
 
 // Usage example
 async function main() {
-const client = new GraphQLClient('[https://your-vercel-deployment-url/graphql](https://your-vercel-deployment-url/graphql)');
+const client = new GraphQLClient('[https://nestjs-backend-task.vercel.app/graphql](https://nestjs-backend-task.vercel.app/graphql)');
 
 try {
 // Register

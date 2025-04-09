@@ -1632,3 +1632,9 @@ If you encounter issues not covered in this documentation:
 </CodeProject>
 
 ```
+
+
+## Deployment
+
+when deploying on vercel or anywhere make sure you add the env from the vercel site also 
+

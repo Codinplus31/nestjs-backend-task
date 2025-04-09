@@ -814,7 +814,7 @@ You can use Postman to test the GraphQL API:
 4. Enter your query or mutation in the "Query" field
 5. Add variables in the "Variables" field
 6. For authenticated requests, add the Authorization header in the Headers tab
-
+```plain
 **Example Postman Collection**:
 
 \`\`\`json
@@ -994,7 +994,7 @@ You can use Postman to test the GraphQL API:
   ]
 }
 ```
-
+```
 **Setting Up Environment Variables in Postman**:
 
 1. Create a new environment in Postman

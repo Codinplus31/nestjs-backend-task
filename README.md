@@ -787,9 +787,9 @@ The GraphQL Playground is available at the GraphQL endpoint when accessing it in
 
 ```
 
-[https://your-vercel-deployment-url/graphql](https://your-vercel-deployment-url/graphql)
+[https://nestjs-backend-task.vercel.app/graphql](https://nestjs-backend-task.vercel.app/graphql)
 
-```plaintext
+
 
 **Steps to use the Playground**:
 

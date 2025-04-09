@@ -18,7 +18,7 @@ A RESTful API service using NestJS with TypeScript that supports user authentica
 - npm or yarn
 - PostgreSQL database
 
-## Video of the endpoints implementation
+## Video of me testing the endpoints in postman
 
 [https://drive.google.com/drive/folders/13TBzxuKbdNYPXTDz6nLM3GBG02gVelzb](https://drive.google.com/drive/folders/13TBzxuKbdNYPXTDz6nLM3GBG02gVelzb)
 

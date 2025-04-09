@@ -30,10 +30,7 @@ npm install
 npm run start:dev
 
 
-mmake a documentation.md file of tis
 
-`<CodeProject id="nestjs-auth-v2">````markdown file="documentation.md"
-...
 ```
 
 **Variables**:
